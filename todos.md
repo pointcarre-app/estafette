@@ -9,6 +9,8 @@
 #### Critical
 
 - [ ] **Simplify drastically**
+- [ ] **pytest SHOUDNT BE USED** get rid of all occurences of pytest
+
 
 #### High Priority
 - [ ] **Get Inspired from** - https://github.com/Gandi/python-zipkin/blob/master/pyproject.toml

@@ -1,0 +1,21 @@
+# Deployment dependencies for projects using pca-estafette
+# Install with: pip install -r requirements-deploy.txt
+
+# Install pca-estafette in editable mode from local directory
+# Replace the path below with the actual path to your pca-estafette repository
+-e /path/to/your/pca-estafette
+
+# Alternative: Install from git repository (when public)
+# git+https://github.com/yourusername/pca-estafette.git
+
+# Core dependencies (these should be satisfied by pca-estafette installation)
+pydantic>=2.11
+python-dotenv>=1.1
+rich>=14.0
+typer>=0.15
+boto3>=1.34
+
+# Optional: Additional deployment utilities
+requests>=2.31.0      # For CORS testing and HTTP requests
+click>=8.1.0          # Alternative CLI framework if needed
+python-dateutil>=2.8  # Date/time utilities 

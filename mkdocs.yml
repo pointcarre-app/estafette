@@ -1,0 +1,33 @@
+site_name: Estafettes Documentation
+site_description: Email automation (Brevo) & OVH Object-Storage deployment toolkit with type-safe models and rich CLI
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.highlight
+    - navigation.top
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            show_root_full_path: false
+            merge_init_into_class: true
+            show_signature_annotations: true
+
+nav:
+  - Home: index.md
+  - Examples: examples.md
+  - API Reference:
+    - Brevo Models: api/models.md
+    - Brevo Configuration: api/config.md
+    - Template Rendering: api/renderer.md
+    - OVH Reference: api/ovh_examples.md

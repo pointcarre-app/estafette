@@ -1,0 +1,53 @@
+# Example rclone configuration file for OVH S3 storage
+# Copy this file to 'rclone.conf' and fill in your actual credentials
+# 
+# To get your credentials:
+# 1. Log into OVH Control Panel
+# 2. Go to Object Storage section
+# 3. Create S3 credentials
+# 4. Replace the placeholder values below with your actual credentials
+
+# [StorageS3]                                    # Configuration section name - can be customized
+# type = s3                                      # Storage type - must be 's3' for S3-compatible storage
+# provider = Other                               # S3 provider - use 'Other' for non-AWS S3 services like OVH
+# env_auth = true                               # Use environment variables for authentication if available
+# access_key_id = YOUR_ACCESS_KEY_ID_HERE       # Your OVH S3 access key (public identifier)
+# secret_access_key = YOUR_SECRET_ACCESS_KEY_HERE # Your OVH S3 secret key (private credential - keep secure!)
+# acl = public-read                             # Default ACL for uploaded objects - 'public-read' makes files publicly accessible
+# bucket_acl = public-read                      # Default ACL for created buckets - 'public-read' allows public access
+# region = eu-west-par                          # OVH region code - must match your bucket's region
+# location_constraint = eu-west-par             # Regional constraint for bucket creation - must match region
+# endpoint = https://s3.eu-west-par.io.cloud.ovh.net # OVH S3 endpoint URL for the specific region
+# cors_allowed_origins = ["http://localhost:8000", "http://127.0.0.1:8000", "https://forge.pointcarre.app"] # CORS: Origins allowed to access your bucket from browsers
+# cors_allowed_methods = ["GET", "HEAD"]        # CORS: HTTP methods allowed for cross-origin requests
+# cors_allowed_headers = ["*"]                  # CORS: Headers allowed in cross-origin requests (* = all headers)
+# cors_expose_headers = ["ETag", "Content-Length", "Content-Type"] # CORS: Headers exposed to browser scripts
+# cors_max_age = 3600                          # CORS: Cache duration for preflight requests (seconds)
+
+# Available OVH regions and their endpoints:
+# - eu-west-par (Europe - France - Paris)      # Default region, good for European users
+#   endpoint = https://s3.eu-west-par.io.cloud.ovh.net
+# - gra (Europe - France - Gravelines)         # Alternative French region
+#   endpoint = https://s3.gra.io.cloud.ovh.net
+# - rbx (Europe - France - Roubaix)           # Alternative French region
+#   endpoint = https://s3.rbx.io.cloud.ovh.net
+# - sbg (Europe - France - Strasbourg)        # Alternative French region
+#   endpoint = https://s3.sbg.io.cloud.ovh.net
+
+# Security Notes:
+# - Keep your secret_access_key private and never commit it to version control
+# - Use environment variables (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY) for production
+# - Consider using bucket-specific ACLs instead of public-read for sensitive data
+# - CORS settings are important for web applications accessing your bucket from browsers
+
+# ACL Options:
+# - private: Only bucket owner has access
+# - public-read: Anyone can read, only owner can write
+# - public-read-write: Anyone can read and write (not recommended)
+# - authenticated-read: Only authenticated users can read
+
+# Common Use Cases:
+# - Static website hosting: Use public-read ACL
+# - API file storage: Use private ACL with signed URLs
+# - Public asset hosting: Use public-read ACL
+# - Backup storage: Use private ACL 
